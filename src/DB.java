@@ -1,15 +1,17 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 import java.sql.*;
 import java.util.LinkedList;
+
 /**
  *
  * @author emmanuel
  */
 public class DB {
-        String url = "jdbc:mysql://localhost:3306/medicalDB";
+    String url = "jdbc:mysql://localhost:3306/reservationSystem";
     String pass = "108996eE@emman";
     String username = "root";
 
@@ -126,10 +128,13 @@ public class DB {
         Connection con = DriverManager.getConnection(url, username, pass);
         Statement st = con.createStatement();
 
-        // String query = query;
-        ResultSet rs = st.executeQuery(query);
-        
+        String qr = query;
+        ResultSet rs = st.executeQuery(qr);
+        System.out.println(rs.getString(qr));
+
     }
-    public static void main(String[] args) throws Exception{
+
+    public static void main(String[] args) throws Exception {
+        queries("SELECT TABLES;");
     }
 }
